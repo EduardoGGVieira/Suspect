@@ -1,0 +1,299 @@
+/* Geral */
+
+body {
+  display: flex;
+  /* Define o layout como flexbox */
+  flex-direction: column;
+  /* Coloca os elementos filhos um abaixo do outro (coluna) */
+  font-family: sans-serif;
+  /* Define uma fonte sem serifa (ex: Arial, Helvetica) */
+  background-color: #ffffff;
+  /* Cor de fundo branca */
+  color: #212529;
+  /* Cor padrão do texto (cinza escuro) */
+  margin: 0;
+  /* Remove a margem padrão do navegador */
+}
+
+/* Navbar */
+
+.barranav {
+  width: 100%;
+  /* Ocupa toda a largura da tela */
+  display: flex;
+  /* Usa flexbox para posicionar os elementos */
+  justify-content: space-around;
+  /* Distribui os itens com espaço igual entre eles */
+  align-items: center;
+  /* Centraliza verticalmente os elementos */
+  background: linear-gradient(90deg, #5db316, #bbe292);
+  /* Cria um fundo com gradiente verde */
+  padding: 0px;
+  /* Remove espaçamento interno */
+  position: sticky;
+  /* Faz a barra “grudar” no topo ao rolar a página */
+  top: 0;
+  /* Define a posição fixa no topo */
+  z-index: 1000;
+  /* Garante que a barra fique sobre outros elementos */
+  /* estou colocando aqui uma funcao para quando o usuario passar com o mouse sobre a barranav, a barranav muda de cor */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  /* Adiciona uma sombra sutil abaixo da barra */
+}
+
+.barranavlinks {
+  list-style: none;
+  /* Remove as bolinhas da lista (ul) */
+  gap: 25px;
+  /* Define o espaçamento entre os itens */
+  display: flex;
+  /* Exibe os links lado a lado */
+}
+
+.barranavlinks li a {
+  color: white;
+  /* Cor branca para o texto dos links */
+  text-decoration: none;
+  /* Remove o sublinhado padrão dos links */
+  font-size: 16px;
+  /* Define o tamanho da fonte */
+  font-weight: bold;
+  /* Deixa o texto em negrito */
+  padding: 8px 12px;
+  /* Espaçamento interno do botão (vertical e horizontal) */
+  border-radius: 15px;
+  /* Arredonda os cantos dos botões */
+  transition: all 0.3s ease;
+  /* Suaviza a transição de cor/efeitos ao passar o mouse */
+}
+
+.barranavlinks li a:hover {
+  background-color: #fff;
+  /* Muda o fundo para branco */
+  color: #68b528;
+  /* Muda o texto para verde */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  /* Adiciona uma sombra suave ao redor */
+}
+
+/* Navbar -- Login */
+
+.barranavlinks li.menulogin {
+  position: relative;
+}
+
+.botaologin.active {
+  background-color: #fff;
+  /* Muda o fundo para branco */
+  color: #68b528;
+  /* Muda o texto para verde */
+  border-radius: 15px 15px 0px 0px;
+  padding: 5px 30px;
+}
+
+.tiposlogin,
+.tiposlogado {
+  position: absolute;
+  /* Tira os links do fluxo da página (para flutuar) */
+  flex-direction: column;
+  /* Coloca os links empilhados verticalmente */
+  padding: 5px 19px;
+  border-radius: 0px 0px 15px 15px;
+  /* Cantos arredondados */
+  background: linear-gradient(#68b528, #e5fcd3);
+  /* Fundo com gradiente circular verde */
+  list-style: none;
+  display: none;
+  /* Esconde o item */
+}
+
+.tiposlogin.active,
+.tiposlogado.active {
+  display: block;
+}
+
+@media (max-width: 1000px) {
+  .botaologin.active {
+    border-radius: 0px 15px 15px 0px;
+    padding: 8px 12px;
+  }
+
+  .tiposlogin,
+  .tiposlogado {
+    position: absolute;
+    top: -6px;
+    right: 100%;
+    flex-direction: row;
+    gap: 0px;
+    padding: 0px 10px;
+    border-radius: 15px 0px 0px 15px;
+    background: linear-gradient(#68b528, #e5fcd3);
+    list-style: none;
+    display: none;
+  }
+
+  .tiposlogin.active,
+  .tiposlogado.active {
+    display: flex;
+  }
+}
+
+.tiposlogin li,
+.tiposlogado li {
+  margin: 8px 0px;
+}
+
+.tiposlogin li a,
+.tiposlogado li a {
+  color: white;
+  /* Cor branca para o texto dos links */
+  text-decoration: none;
+  /* Remove o sublinhado padrão dos links */
+  font-size: 16px;
+  /* Define o tamanho da fonte */
+  font-weight: bold;
+  /* Deixa o texto em negrito */
+  border-radius: 15px;
+  padding: 2px 12px;
+  transition: all 0.3s ease;
+  /* Suaviza a transição de cor/efeitos ao passar o mouse */
+}
+
+.tiposlogin li a:hover,
+.tiposlogado li a:hover {
+  background-color: white;
+  /* Muda o fundo para branco */
+  color: #68b528;
+  /* Muda o texto para verde */
+}
+
+/* Logo */
+.logo {
+  display: flex;
+  /* Coloca imagem e texto lado a lado */
+  align-items: center;
+  /* Alinha verticalmente no centro */
+  gap: 10px;
+  /* Espaço entre a imagem e o texto */
+}
+
+.logo img {
+  width: 60px;
+  /* Largura da logo */
+  height: 60px;
+  /* Altura da logo */
+  border-radius: 50%;
+  /* Deixa a imagem redonda */
+}
+
+.logo a {
+  font-family: "Lucida Handwriting", cursive;
+  /* Fonte decorativa tipo manuscrita */
+  color: white;
+  /* Texto branco */
+  font-size: 22px;
+  /* Tamanho da fonte */
+  text-decoration: none;
+  /* Remove o sublinhado */
+}
+
+/* Footer */
+.footer {
+  bottom: 0px;
+  margin-top: 20px;
+  /* Espaço acima do rodapé */
+  padding: 10px;
+  /* Espaçamento interno */
+  color: white;
+  /* Texto branco */
+  text-align: center;
+  /* Centraliza o texto */
+  border-radius: 20px 20px 0 0;
+  /* Arredonda os cantos superiores */
+  font-size: 14px;
+  /* Tamanho da fonte menor */
+  background: linear-gradient(90deg, #469d00, #254700);
+  /* Gradiente verde escuro */
+}
+
+/* Responsividade */
+.barranavmobile {
+  display: none;
+  /* Esconde no computador */
+  font-size: 26px;
+  /* Tamanho do ícone */
+  color: white;
+  /* Cor do ícone */
+  cursor: pointer;
+  /* Mostra o ponteiro de mão ao passar o mouse */
+}
+
+.footermobile {
+  display: none;
+  /* Esconde no computador */
+  justify-content: center;
+  /* Centraliza o conteúdo */
+  border-radius: 20px 20px 0 0;
+  /* Arredonda o topo */
+  font-size: 14px;
+  /* Tamanho da fonte */
+  background: linear-gradient(90deg, #469d00, #254700);
+  /* Mesmo gradiente do footer */
+  color: white;
+  /* Texto branco */
+  padding: 10px;
+  /* Espaçamento interno */
+  margin-top: 20px;
+  /* Espaço acima */
+}
+
+@media (max-width: 1000px) {
+  .barranavlinks {
+    position: absolute;
+    /* Tira os links do fluxo da página (para flutuar) */
+    top: 70px;
+    /* Define distância do topo da tela */
+    right: 20px;
+    /* Alinha à direita */
+    flex-direction: column;
+    /* Coloca os links empilhados verticalmente */
+    gap: 15px;
+    /* Espaço entre os links */
+    padding: 15px;
+    /* Espaço interno */
+    border-radius: 15px;
+    /* Cantos arredondados */
+    background: radial-gradient(#9eb987, #68b528);
+    /* Fundo com gradiente circular verde */
+    display: none;
+    /* Esconde o item */
+  }
+
+  .barranavlinks.active {
+    display: flex;
+    /* Mostra os links quando a classe "active" é adicionada via JS */
+  }
+
+  .barranavmobile {
+    display: block;
+    /* Exibe o menu ☰ no modo celular */
+  }
+
+  .footer {
+    display: none;
+    /* Esconde o footer normal no celular */
+  }
+
+  .footermobile {
+    display: flex;
+    /* Mostra o footer adaptado para telas menores */
+  }
+}
+
+.logo img {
+  background-color: white;
+  border-radius: 50%;
+  height: 60px;
+  width: 60px;
+  padding: 5px;
+}

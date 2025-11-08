@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Responsividade -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Suspe(c)t</title>
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+    <link rel="stylesheet" href="maisdetalhes.css" />
+    <link rel="stylesheet" href="../../index.css" />
+    <!-- Icones -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <nav class="barranav">
+      <div class="logo">
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/616/616408.png"
+          alt="Logo Pet"
+        />
+        <h1><a href="../../"> Suspe(c)t</a></h1>
+      </div>
+
+      <ul class="barranavlinks">
+        <li>
+          <a id="funcaousuario" href="../../postar/Deslogado/">
+            🐕 Postar animal</a
+          >
+        </li>
+        <li><a href="../../ong/">🏠 ONGs</a></li>
+        <li><a href="../../adotar">🐶 Adotar</a></li>
+        <li><a href="../../suporte">📞 Suporte</a></li>
+        <li><a href="../../sobre">💖 Sobre Nós</a></li>
+
+        <!-- BOTÃO DO GAB, ADICIONAR ESTA PARTE -->
+        <li class="menulogin">
+          <a class="botaologin">🐾 Login</a>
+          <ul class="tiposlogin">
+            <li>
+              <a id="tiposlogin1" href="../../conta/cadastro">Cadastro</a>
+            </li>
+            <li><a id="tiposlogin2" href="../../conta/login">Login</a></li>
+          </ul>
+        </li>
+      </ul>
+
+      <!-- Botão Hamburguer (mobile) -->
+      <div class="barranavmobile">
+        <i class="fa-solid fa-bars"> </i>
+      </div>
+    </nav>
+
+    <div class="corpo"></div>
+
+    <!-- Detalhes -->
+    <!-- <div class="cabecalho">
+      <img
+        src="https://www.google.com/url?sa=i&url=https%3A%2F%2Ffotografia.folha.uol.com.br%2Fgalerias%2F19208-pac-man-e-as-aventuras-fantasmagoricas&psig=AOvVaw1eyiXrmSnpgdxsU6ODegcg&ust=1761922181319000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCNiG2t-VzJADFQAAAAAdAAAAABAE"
+        alt="LogoOng"
+      />
+      <h1>Nome da Ong</h1>
+    </div>
+
+    <div class="descricao">
+      <p>
+        Neste campo vai ter uma pequena descrição sobre a ong. Na parte do
+        perfil a ong vai ter a opção de escrever aqui o que desejar e o sistema
+        salvara este comentario no banco de dados.
+      </p>
+    </div>
+
+    <div class="informacoes">
+      <div class="caixadeinformacoes">
+        <p>Nome: Ong</p>
+        <p>CNPJ: 999999999</p>
+        <p>Endereço: Aqui</p>
+        <p>Telefone: 4199999999</p>
+        <p>Para doações: Pix</p>
+        <p>Links: <a target="_blank" href="../Home.html">Link</a></p>
+      </div>
+    </div> -->
+
+    <!-- Footer -->
+    <footer class="footer">
+      2025 Suspe(c)t. Todos os direitos reservados ao grupo: Artur Conrratt,
+      Eduardo Guilherme, Gabriel Moreno, Marcelo Abreu e Rubens Bavaroski.
+    </footer>
+
+    <footer class="footermobile">2025 Suspe(c)t.</footer>
+  </body>
+
+  <script src="maisdetalhes.js?t=1"></script>
+
+  <script src="../../index.js"></script>
+
+  <script>
+    fetch("../../conta/verificarlogin.php")
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.tipo) {
+          botaologin.textContent = `Olá, ${data.nome}`;
+          tiposlogin1.textContent = "Perfil";
+          tiposlogin1.href = "../../conta/perfil";
+          tiposlogin2.textContent = "Sair";
+          tiposlogin2.href = "../../conta/logout.php";
+          if (data.tipo === "vol") {
+            // Construa o botão na barra de navegação
+            funcaousuario.href = "../../postar";
+          } else if (data.tipo === "ong") {
+            funcaousuario.textContent = "📢 Postar Campanha";
+
+            funcaousuario.href = "../../ong/campanha";
+          } else if (data.tipo === "adm") {
+            funcaousuario.textContent = "🔑 Administrador";
+            funcaousuario.href = "../../adm";
+          }
+        }
+      });
+  </script>
+</html>

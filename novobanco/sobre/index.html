@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Responsividade -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Suspe(c)t</title>
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+
+    <!-- Adicione seu css aqui <link rel="stylesheet" href=".css" /> -->
+    <link rel="stylesheet" href="../index.css" />
+    <link rel="stylesheet" href="sobre.css" />
+    <link rel="stylesheet" href="../Home.css" />
+
+    <!-- Icones -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <nav class="barranav">
+      <div class="logo">
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/616/616408.png"
+          alt="Logo Pet"
+        />
+        <h1><a href="../"> Suspe(c)t</a></h1>
+      </div>
+
+      <ul class="barranavlinks">
+        <li>
+          <a id="funcaousuario" href="../postar/Deslogado/">
+            🐕 Postar animal</a
+          >
+        </li>
+        <li><a href="../ong">🏠 ONGs</a></li>
+        <li><a href="../adotar">🐶 Adotar</a></li>
+        <li><a href="../suporte">📞 Suporte</a></li>
+        <li><a href="../sobre">💖 Sobre Nós</a></li>
+
+        <!-- BOTÃO DO GAB, ADICIONAR ESTA PARTE -->
+        <li class="menulogin">
+          <a class="botaologin">🐾 Login</a>
+          <ul class="tiposlogin">
+            <li><a id="tiposlogin1" href="../conta/cadastro">Cadastro</a></li>
+            <li><a id="tiposlogin2" href="../conta/login">Login</a></li>
+          </ul>
+        </li>
+      </ul>
+
+      <!-- Botão Hamburguer (mobile) -->
+      <div class="barranavmobile">
+        <i class="fa-solid fa-bars"> </i>
+      </div>
+    </nav>
+
+    <!-- Corpo -->
+
+    <div class="titulo">
+      <h1>Sobre Nós</h1>
+      <p style="margin-left: 30px; margin-right: 30px;">
+        Bem-vindo à nossa seção sobre nós! Aqui, você pode descobrir mais
+        informações sobre como funcionamos, porque fizemos nosso site e tambem,
+        ao final da pagina, voce pode encontrar um botão para fazer uma doação
+        monetaria, caso queira que nossa causa continue!
+      </p>
+    </div>
+
+    <div class="Explicacaobody">
+      <div class="funcionamos">
+        <div class="textonos">
+          <h1>Como funcionamos?</h1>
+          <p>
+            Nós somos um grupo independente que produziu esse site para mediar a
+            interação de doar ou adotar um animal com uma ONG, tornando esse
+            contato mais facil e intuitivo.
+          </p>
+        </div>
+        <div class="fotonos">
+          <img
+            src="https://tse1.mm.bing.net/th/id/OIP.7MQsrKdwRf3TcmZDWSkUPgHaHa?rs=1&pid=ImgDetMain&o=7&rm=3"
+            alt=""
+          />
+        </div>
+      </div>
+
+      <div class="porque">
+        <div class="textonos">
+          <h1>Por que?</h1>
+          <p>
+            Nós Temos como principal objetivo, ajudar os animais em situação de
+            rua a encontrarem um lar, onde eles possam receber e dar muito amor
+            e carinho ao seus donos.
+          </p>
+        </div>
+        <div class="fotonos">
+          <img
+            src="https://tse2.mm.bing.net/th/id/OIP.0ymY9n64w_C2v3x5wZVT3QHaHX?w=564&h=561&rs=1&pid=ImgDetMain&o=7&rm=3"
+            alt=""
+          />
+        </div>
+      </div>
+
+      <div class="pix">
+        <div class="textonos">
+          <h1>Faça uma doação!</h1>
+          <p>
+            Gostou do nosso site ou da nossa causa? Doe um valor monetario para
+            nós! Qualquer quantia já é uma grande ajuda.
+          </p>
+          <p>Pix: emailgenerico@gmail.com</p>
+          <p>Muito Obrigado!</p>
+        </div>
+        <div class="qrcode">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Rickrolling_QR_code.png"
+            alt=""
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      2025 Suspe(c)t. Todos os direitos reservados ao grupo: Artur Conrratt,
+      Eduardo Guilherme, Gabriel Moreno, Marcelo Abreu e Rubens Bavaroski.
+    </footer>
+
+    <footer class="footermobile">2025 Suspe(c)t.</footer>
+  </body>
+  <script src="../index.js"></script>
+
+  <script>
+    fetch("../conta/verificarlogin.php")
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.tipo) {
+          botaologin.textContent = `Olá, ${data.nome}`;
+          tiposlogin1.textContent = "Perfil";
+          tiposlogin1.href = "../conta/perfil";
+          tiposlogin2.textContent = "Sair";
+          tiposlogin2.href = "../conta/logout.php";
+          if (data.tipo === "vol") {
+            // Construa o botão na barra de navegação
+            funcaousuario.href = "../postar";
+          } else if (data.tipo === "ong") {
+            funcaousuario.textContent = "📢 Postar Campanha";
+
+            funcaousuario.href = "../ong/campanha";
+          } else if (data.tipo === "adm") {
+            funcaousuario.textContent = "🔑 Administrador";
+            funcaousuario.href = "../adm";
+          }
+        }
+      });
+  </script>
+</html>

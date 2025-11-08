@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Responsividade -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Suspe(c)t</title>
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+
+    <!-- Adicione seu css aqui <link rel="stylesheet" href=".css" /> -->
+    
+    <link rel="stylesheet" href="../../index.css" />
+    <link rel="stylesheet" href="../perfil/perfil.css" />
+    <link rel="stylesheet" href="../../home.css" />
+
+    <!-- Icones -->
+    <link
+      rel="stylesheet"
+      href="https://media1.tenor.com/images/ad174cb3bc0d842475ca63d08e75f909/tenor.gif?itemid=10196532"
+    />
+  </head>
+
+  <body class="tudissimo">
+    <!-- Navbar -->
+    <nav class="barranav">
+      <div class="logo">
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/616/616408.png"
+          alt="Logo Pet"
+        />
+        <h1><a href="../../"> Suspe(c)t</a></h1>
+      </div>
+
+      <ul class="barranavlinks">
+        <li>
+          <a id="funcaousuario" href="../../postar/Deslogado/">
+            🐕 Postar animal</a
+          >
+        </li>
+        <li><a href="../../ong/">🏠 ONGs</a></li>
+        <li><a href="../../adotar">🐶 Adotar</a></li>
+        <li><a href="../../suporte">📞 Suporte</a></li>
+        <li><a href="../../sobre">💖 Sobre Nós</a></li>
+
+        <!-- BOTÃO DO GAB, ADICIONAR ESTA PARTE -->
+        <li class="menulogin">
+          <a class="botaologin">🐾 Login</a>
+          <ul class="tiposlogin">
+            <li>
+              <a id="tiposlogin1" href="../../conta/cadastro">Cadastro</a>
+            </li>
+            <li><a id="tiposlogin2" href="../../conta/login">Login</a></li>
+          </ul>
+        </li>
+      </ul>
+
+      <!-- Botão Hamburguer (mobile) -->
+      <div class="barranavmobile">
+        <i class="fa-solid fa-bars"> </i>
+      </div>
+    </nav>
+
+    <!-- Corpo -->
+    <div>
+      <div class="titulo" >
+        <h1 id="titulonomeusu">Encontre seu novo melhor amigo</h1>
+
+        <p>
+          Mantenha suas informações de voluntário na Suspe(c)t atualizadas, ou delete seu perfil.
+         </p>
+      </div>
+
+      <div class="perfil_usuario">
+        <h2>Informações do Perfil</h2>
+        <div id="dados_perfil">
+          <p>Carregando dados...</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      2025 Suspe(c)t. Todos os direitos reservados ao grupo: Artur Conrratt,
+      Eduardo Guilherme, Gabriel Moreno, Marcelo Abreu e Rubens Bavaroski.
+    </footer>
+
+    <footer class="footermobile">2025 Suspe(c)t.</footer>
+  </body>
+
+  <script src="perfil.js"></script>
+  <script src="../../index.js"></script>
+
+  <script>
+    fetch("../verificarlogin.php")
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.tipo) {
+          botaologin.textContent = `Olá, ${data.nome}`;
+          tiposlogin1.textContent = "Perfil";
+          tiposlogin1.href = "../../conta/perfil";
+          tiposlogin2.textContent = "Sair";
+          tiposlogin2.href = "../../conta/logout.php";
+// 
+          const tituloDinamico = document.getElementById('titulonomeusu');
+           tituloDinamico.textContent = `Gerencie seu perfil aqui, ${data.nome}`;
+          fetch("perfil.php")
+            .then((r) => r.json())
+            .then((perfilData) => {
+              const dadosPerfilDiv = document.getElementById("dados_perfil");
+
+              if (perfilData.erro) {
+                dadosPerfilDiv.innerHTML = `<p style="color: red;">Erro ao carregar dados: ${perfilData.erro}</p>`;
+                return;
+              }
+
+              dadosPerfilDiv.innerHTML = ""; // Limpa o "Carregando dados..."
+              const perfilElemento = criarCardPerfil(perfilData);
+              dadosPerfilDiv.appendChild(perfilElemento);
+            })
+            .catch((error) => {
+              console.error("Erro ao buscar dados do perfil:", error);
+              document.getElementById("dados_perfil").innerHTML =
+                '<p style="color: red;">Falha na comunicação com o servidor de dados.</p>';
+            });
+           
+// 
+          if (data.tipo === "vol") {
+            funcaousuario.href = "../../postar";
+          } else if (data.tipo === "ong") {
+            funcaousuario.textContent = "📢 Postar Campanha";
+            funcaousuario.href = "../../ong/campanha";
+          } else if (data.tipo === "adm") {
+            funcaousuario.textContent = "🔑 Administrador";
+            funcaousuario.href = "../../adm";
+          }
+        } else {
+          window.location.replace("../../conta/login");
+        }
+      });
+
+
+ 
+  </script>
+</html>

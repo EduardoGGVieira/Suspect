@@ -1,0 +1,308 @@
+[08-Nov-2025 13:04:31 Europe/Berlin] PHP Warning:  include(../../conexao.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\Suspect\novobanco\conta\perfil\editar\deletarperfil.php on line 22
+[08-Nov-2025 13:04:31 Europe/Berlin] PHP Warning:  include(): Failed opening '../../conexao.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Suspect\novobanco\conta\perfil\editar\deletarperfil.php on line 22
+[08-Nov-2025 13:04:31 Europe/Berlin] PHP Warning:  Undefined variable $conn in C:\xampp\htdocs\Suspect\novobanco\conta\perfil\editar\deletarperfil.php on line 25
+[08-Nov-2025 13:04:31 Europe/Berlin] PHP Warning:  Attempt to read property "connect_error" on null in C:\xampp\htdocs\Suspect\novobanco\conta\perfil\editar\deletarperfil.php on line 25
+[08-Nov-2025 13:04:31 Europe/Berlin] === DELETAR PERFIL ATIVADO ===
+[08-Nov-2025 13:04:31 Europe/Berlin] POST recebido: Array
+(
+    [id] => 
+)
+
+[08-Nov-2025 13:04:31 Europe/Berlin] SESSION atual: Array
+(
+    [tipo] => vol
+    [nome] => Joelmo Teste da Silva
+    [email] => teste@teste.com
+    [id] => 5
+    [mensagem_perfil] => Array
+        (
+            [tipo] => erro
+            [texto] => Ação inválida. Tente novamente.
+        )
+
+)
+
+[08-Nov-2025 13:04:31 Europe/Berlin] Tentativa de deleção inválida para ID: 
+[08-Nov-2025 13:06:47 Europe/Berlin] PHP Warning:  include(../../../../conexao.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\Suspect\novobanco\conta\perfil\editar\deletarperfil.php on line 22
+[08-Nov-2025 13:06:47 Europe/Berlin] PHP Warning:  include(): Failed opening '../../../../conexao.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Suspect\novobanco\conta\perfil\editar\deletarperfil.php on line 22
+[08-Nov-2025 13:06:47 Europe/Berlin] PHP Warning:  Undefined variable $conn in C:\xampp\htdocs\Suspect\novobanco\conta\perfil\editar\deletarperfil.php on line 25
+[08-Nov-2025 13:06:47 Europe/Berlin] PHP Warning:  Attempt to read property "connect_error" on null in C:\xampp\htdocs\Suspect\novobanco\conta\perfil\editar\deletarperfil.php on line 25
+[08-Nov-2025 13:06:47 Europe/Berlin] === DELETAR PERFIL ATIVADO ===
+[08-Nov-2025 13:06:47 Europe/Berlin] POST recebido: Array
+(
+    [id] => 
+)
+
+[08-Nov-2025 13:06:47 Europe/Berlin] SESSION atual: Array
+(
+    [tipo] => vol
+    [nome] => Joelmo Teste da Silva
+    [email] => teste@teste.com
+    [id] => 5
+    [mensagem_perfil] => Array
+        (
+            [tipo] => erro
+            [texto] => Ação inválida. Tente novamente.
+        )
+
+)
+
+[08-Nov-2025 13:06:47 Europe/Berlin] Tentativa de deleção inválida para ID: 
+[08-Nov-2025 13:10:24 Europe/Berlin] === DELETAR PERFIL ATIVADO ===
+[08-Nov-2025 13:10:24 Europe/Berlin] POST recebido: Array
+(
+    [id] => 
+)
+
+[08-Nov-2025 13:10:24 Europe/Berlin] SESSION atual: Array
+(
+    [tipo] => vol
+    [nome] => Joelmo Teste da Silva
+    [email] => teste@teste.com
+    [id] => 5
+    [mensagem_perfil] => Array
+        (
+            [tipo] => erro
+            [texto] => Ação inválida. Tente novamente.
+        )
+
+)
+
+[08-Nov-2025 13:10:24 Europe/Berlin] Tentativa de deleção inválida para ID: 
+[08-Nov-2025 13:14:03 Europe/Berlin] === DELETAR PERFIL ATIVADO ===
+[08-Nov-2025 13:14:03 Europe/Berlin] POST recebido: Array
+(
+    [id] => 
+)
+
+[08-Nov-2025 13:14:03 Europe/Berlin] SESSION atual: Array
+(
+    [tipo] => vol
+    [nome] => Joelmo Teste da Silva
+    [email] => teste@teste.com
+    [id] => 5
+    [mensagem_perfil] => Array
+        (
+            [tipo] => erro
+            [texto] => Ação inválida. Tente novamente.
+        )
+
+)
+
+[08-Nov-2025 13:14:03 Europe/Berlin] Tentativa de deleção inválida para ID: 
+[08-Nov-2025 13:15:52 Europe/Berlin] === DELETAR PERFIL ATIVADO ===
+[08-Nov-2025 13:15:52 Europe/Berlin] POST recebido: Array
+(
+    [id] => 
+)
+
+[08-Nov-2025 13:15:52 Europe/Berlin] SESSION atual: Array
+(
+    [tipo] => vol
+    [nome] => Joelmo Teste da Silva
+    [email] => teste@teste.com
+    [id] => 5
+    [mensagem_perfil] => Array
+        (
+            [tipo] => erro
+            [texto] => Ação inválida. Tente novamente.
+        )
+
+)
+
+[08-Nov-2025 13:15:52 Europe/Berlin] Tentativa de deleção inválida para ID: 
+[08-Nov-2025 13:21:09 Europe/Berlin] === DELETAR PERFIL ATIVADO ===
+[08-Nov-2025 13:21:09 Europe/Berlin] POST recebido: Array
+(
+    [id] => 
+)
+
+[08-Nov-2025 13:21:09 Europe/Berlin] SESSION atual: Array
+(
+    [tipo] => vol
+    [nome] => Joelmo Teste da Silva
+    [email] => teste@teste.com
+    [id] => 5
+    [mensagem_perfil] => Array
+        (
+            [tipo] => erro
+            [texto] => Ação inválida. Tente novamente.
+        )
+
+)
+
+[08-Nov-2025 13:21:09 Europe/Berlin] Tentativa de deleção inválida para ID: 
+[08-Nov-2025 13:26:32 Europe/Berlin] === DELETAR PERFIL ATIVADO ===
+[08-Nov-2025 13:26:32 Europe/Berlin] POST recebido: Array
+(
+    [id] => 
+)
+
+[08-Nov-2025 13:26:32 Europe/Berlin] SESSION atual: Array
+(
+    [tipo] => vol
+    [nome] => Joelmo Teste da Silva
+    [email] => teste@teste.com
+    [id] => 5
+    [mensagem_perfil] => Array
+        (
+            [tipo] => erro
+            [texto] => Ação inválida. Tente novamente.
+        )
+
+)
+
+[08-Nov-2025 13:26:32 Europe/Berlin] Tentativa de deleção inválida para ID: 
+[08-Nov-2025 13:28:40 Europe/Berlin] === DELETAR PERFIL ATIVADO ===
+[08-Nov-2025 13:28:40 Europe/Berlin] POST recebido: Array
+(
+    [id] => 
+)
+
+[08-Nov-2025 13:28:40 Europe/Berlin] SESSION atual: Array
+(
+    [tipo] => vol
+    [nome] => Joelmo Teste da Silva
+    [email] => teste@teste.com
+    [id] => 5
+    [mensagem_perfil] => Array
+        (
+            [tipo] => erro
+            [texto] => Ação inválida. Tente novamente.
+        )
+
+)
+
+[08-Nov-2025 13:28:40 Europe/Berlin] Tentativa de deleção inválida para ID: 
+[08-Nov-2025 13:32:21 Europe/Berlin] === DELETAR PERFIL ATIVADO ===
+[08-Nov-2025 13:32:21 Europe/Berlin] POST recebido: Array
+(
+    [id] => 5
+)
+
+[08-Nov-2025 13:32:21 Europe/Berlin] SESSION atual: Array
+(
+    [tipo] => vol
+    [nome] => Joelmo Teste da Silva
+    [email] => teste@teste.com
+    [id] => 5
+    [mensagem_perfil] => Array
+        (
+            [tipo] => erro
+            [texto] => Ação inválida. Tente novamente.
+        )
+
+)
+
+[08-Nov-2025 13:41:26 Europe/Berlin] === DELETAR PERFIL ATIVADO ===
+[08-Nov-2025 13:41:26 Europe/Berlin] POST recebido: Array
+(
+    [id] => 
+)
+
+[08-Nov-2025 13:41:26 Europe/Berlin] SESSION atual: Array
+(
+    [id] => 6
+    [tipo] => vol
+    [nome] => Joelmo Teste da Silva
+    [email] => teste@teste.com
+)
+
+[08-Nov-2025 13:41:26 Europe/Berlin] Tentativa de deleção inválida para ID: 
+[08-Nov-2025 13:42:17 Europe/Berlin] === DELETAR PERFIL ATIVADO ===
+[08-Nov-2025 13:42:17 Europe/Berlin] POST recebido: Array
+(
+    [id] => 
+)
+
+[08-Nov-2025 13:42:17 Europe/Berlin] SESSION atual: Array
+(
+    [id] => 6
+    [tipo] => vol
+    [nome] => Joelmo Teste da Silva
+    [email] => teste@teste.com
+    [mensagem_perfil] => Array
+        (
+            [tipo] => erro
+            [texto] => Ação inválida. Tente novamente.
+        )
+
+)
+
+[08-Nov-2025 13:42:17 Europe/Berlin] Tentativa de deleção inválida para ID: 
+[08-Nov-2025 13:50:58 Europe/Berlin] === DELETAR PERFIL ATIVADO ===
+[08-Nov-2025 13:50:58 Europe/Berlin] POST recebido: Array
+(
+    [id] => 6
+)
+
+[08-Nov-2025 13:50:58 Europe/Berlin] SESSION atual: Array
+(
+    [id] => 6
+    [tipo] => vol
+    [nome] => Joelmo Teste da Silva
+    [email] => teste@teste.com
+    [mensagem_perfil] => Array
+        (
+            [tipo] => erro
+            [texto] => Ação inválida. Tente novamente.
+        )
+
+)
+
+[08-Nov-2025 14:33:28 Europe/Berlin] === DELETAR PERFIL ATIVADO ===
+[08-Nov-2025 14:33:28 Europe/Berlin] POST recebido: Array
+(
+    [id] => 7
+)
+
+[08-Nov-2025 14:33:28 Europe/Berlin] SESSION atual: Array
+(
+    [id] => 7
+    [tipo] => vol
+    [nome] => Grandessíssimo Joelmo
+    [email] => teste@teste.com
+)
+
+[08-Nov-2025 14:35:07 Europe/Berlin] === DELETAR PERFIL ATIVADO ===
+[08-Nov-2025 14:35:07 Europe/Berlin] POST recebido: Array
+(
+    [id] => 8
+)
+
+[08-Nov-2025 14:35:07 Europe/Berlin] SESSION atual: Array
+(
+    [id] => 8
+    [tipo] => vol
+    [nome] => Enorme Joelmo
+    [email] => teste@testando.com
+)
+
+[08-Nov-2025 14:37:39 Europe/Berlin] === DELETAR PERFIL ATIVADO ===
+[08-Nov-2025 14:37:39 Europe/Berlin] POST recebido: Array
+(
+    [id] => 10
+)
+
+[08-Nov-2025 14:37:39 Europe/Berlin] SESSION atual: Array
+(
+    [id] => 10
+    [tipo] => vol
+    [nome] => Enorme Joelmo
+    [email] => teste@testando.com
+)
+
+[08-Nov-2025 14:40:23 Europe/Berlin] === DELETAR PERFIL ATIVADO ===
+[08-Nov-2025 14:40:23 Europe/Berlin] POST recebido: Array
+(
+    [id] => 11
+)
+
+[08-Nov-2025 14:40:23 Europe/Berlin] SESSION atual: Array
+(
+    [id] => 11
+    [tipo] => vol
+    [nome] => Joelmo Bonito
+    [email] => teste@testando.com
+)
+

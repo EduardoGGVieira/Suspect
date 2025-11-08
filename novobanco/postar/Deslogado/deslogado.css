@@ -1,0 +1,59 @@
+body {
+    background-color: #e2f7d7;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.titulo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.titulo h1 {
+    font-size: 50px;
+    color: #68b528;
+    -webkit-text-stroke: 2px #5b9a28;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    margin-bottom: 5px;
+}
+
+.titulo h3 {
+    color: #ff0000;
+    margin-bottom: 5px;
+}
+
+.titulo p {
+    font-size: 22px;
+    color: black;
+    margin-bottom: 20px;
+}
+
+.logo img {
+    background-color: white;
+    border-radius: 50%;
+    height: 60px;
+    width: 60px;
+    padding: 5px;
+}
+
+
+.usudeslog {
+    display: flex;
+    
+    justify-content: center;
+   
+
+    
+}
+
+.usudeslog img {
+    width: 500px;
+    height: 500px;
+    border-radius: 40px;
+    margin-top: 50px;
+    
+
+}

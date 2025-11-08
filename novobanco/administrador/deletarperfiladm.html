@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Confirmar Exclusão | Suspe(c)t</title>
+
+  <link rel="stylesheet" href="../index.css" />
+  <link rel="stylesheet" href="deletarperfiladm.css" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+</head>
+
+<body class="tudissimo">
+  <nav class="barranav">
+   
+
+    <ul class="barranavlinks">
+      
+
+
+
+      <div class="barranavmobile">
+        <i class="fa-solid fa-bars"> </i>
+      </div>
+  </nav>
+
+  <div class="corpo">
+    <div class="perfil_usuario">
+      <h1>
+        ⚠️ CONFIRMAR EXCLUSÃO DE PERFIL ⚠️
+      </h1>
+
+      <p>
+        Ao confirmar, todos os DADOS e histórico do USUARIO (OU ONG OU VOLUNTÁRIO) serão
+        **permanentemente removidos** do Suspe(c)t.
+      </p>
+
+      <p class="aviso-confirmacao">
+        Tem certeza que deseja continuar? Esta ação não pode ser desfeita.
+      </p>
+
+      <form action="deletarperfil.php" method="post" id="form-delecao">
+        <input type="hidden" id="id_usuario_delecao" name="id" value="" />
+
+        <div class="acoes-perfil">
+          <button type="submit" class="btn-deletar">
+            SIM, DELETAR CONTA
+          </button>
+
+          <button type="button" class="btn-editar" onclick="window.location.href='index.html'">
+            CANCELAR E VOLTAR
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <footer class="footer">
+    2025 Suspe(c)t. Todos os direitos reservados ao grupo: Artur Conrratt,
+    Eduardo Guilherme, Gabriel Moreno, Marcelo Abreu e Rubens Bavaroski.
+  </footer>
+
+  <footer class="footermobile">2025 Suspe(c)t.</footer>
+</body>
+
+<script>
+
+
+
+  // --- NOVO CÓDIGO PARA CAPTURAR O ID DA URL ---
+  const urlParams = new URLSearchParams(window.location.search);
+  const userId = urlParams.get('id'); // 'id' é o parâmetro passado pelo botão Deletar
+
+  if (userId) {
+    // Define o ID do usuário no campo hidden do formulário
+    document.getElementById("id_usuario_delecao").value = userId;
+  } else {
+    // Caso o ID não seja encontrado na URL, alerta e redireciona
+    alert("ID do usuário a ser deletado não especificado.");
+    window.location.replace('../index.html'); // Volta para a lista de usuários
+  }
+
+  // Altera a ação do formulário para o novo script de administração
+  document.getElementById("form-delecao").action = "deletarperfiladm.php";
+
+
+
+
+
+
+  // Lógica do botão hamburguer 
+  const hamburguer = document.querySelector(".barranavmobile");
+  const navLinks = document.querySelector(".barranavlinks");
+  hamburguer.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+  });
+
+  // Elementos da navegação que precisam ser atualizados
+  const botaologin = document.querySelector(".botaologin");
+  const tiposlogado = document.querySelector(".tiposlogado"); // Menu 'Ver Perfil/Sair'
+  const tiposlogin = document.querySelector(".tiposlogin"); // Menu 'Voluntário/ONG'
+  const postar_animal = document.getElementById("postar_animal"); // Link dinâmico
+
+  // Função para lidar com o clique no Login/Usuário
+  botaologin.addEventListener("click", () => {
+    // Alterna a visibilidade do menu relevante
+    if (tiposlogado.classList.contains("active")) {
+      tiposlogado.classList.remove("active");
+    } else if (tiposlogin.classList.contains("active")) {
+      tiposlogin.classList.remove("active");
+    }
+
+    // Se a página for acessada por um ADM logado, o menu 'tiposlogado' deve ser mostrado
+    if (botaologin.textContent.startsWith("Olá,")) {
+      tiposlogado.classList.toggle("active");
+    } else {
+      tiposlogin.classList.toggle("active");
+    }
+    botaologin.classList.toggle("active");
+  });
+
+  
+  fetch('../conta/verificarlogin.php')
+    .then(response => response.json())
+    .then(data => {
+
+      if (data.tipo) {
+        // Usuário está logado
+        botaologin.innerHTML = `Olá, ${data.nome}`;
+
+        // Lógica de redirecionamento para o link dinâmico
+        if (data.tipo === "vol") {
+          postar_animal.href = "../../postar"; // Redireciona para postar animal
+        } else if (data.tipo === "ong") {
+          postar_animal.textContent = "📢 Postar Campanha";
+          postar_animal.href = "../../ong/campanha"; // Redireciona para postar campanha
+        } else if (data.tipo === "adm") {
+          funcaousuario.textContent = "👤 Usuários";
+          funcaousuario.href = "index.html";
+        }
+
+        // Garante que o menu de login padrão não apareça para logados
+        tiposlogin.style.display = 'none';
+
+      } else {
+        // Usuário deslogado: garante que o menu logado não apareça
+        tiposlogado.style.display = 'none';
+      }
+    })
+    .catch(error => console.error('Erro ao verificar login:', error));
+
+</script>
+
+</html>

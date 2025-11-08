@@ -1,0 +1,215 @@
+/* Título */
+.titulo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* border: black solid; */
+    background-color: #e2f7d7;
+}
+
+.tudissimo {
+    background-color: #e2f7d7;
+}
+
+.titulo h1 {
+    font-size: 50px;
+    color: #68b528;
+    -webkit-text-stroke: 2px #5b9a28;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.titulo p {
+    font-size: 22px;
+    color: black;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.ficha_animal {
+    display: flex;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: row;
+    overflow-y: auto;
+    background-color: #e2f7d7;
+}
+
+.feed {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: row;
+}
+.animal {
+    border-radius: 20px;
+    margin: 10px;
+    padding: 20px;
+    text-align: center;
+    background-color: #9fec63;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-image: linear-gradient(to top, #9fec63, #c7f7a2);
+    
+    animation: fadein 1.5s ease-in-out;
+}
+/* USADAO O CHAT PARA COLOCAR ESTA FUNÇÃO; */
+@keyframes fadein {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animal:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+}
+.animal img {
+    height: 130px;
+    width: 130px;
+    border-radius: 20px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+    transition: transform 0.3s ease;
+
+
+}
+.animal img:hover {
+
+    transform: scale(1.2);
+
+}
+.animal p {
+    color: #333;
+    margin: 8px 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+
+}
+.nomeanimal {
+    display: flex;
+    flex-direction: column;
+    background-color: #dbf9c6;
+    border-radius: 15px;
+    box-shadow: inset -2px -4px 0px 0px rgba(0, 0, 0, 0.15);
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.animal h3 {
+    font-weight: 300px;
+    color: #000;
+}
+.animal button {
+    background-color: #9fec63;
+    border-radius: 15px;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-top: 10px;
+    color: white;
+}
+.animal button:hover {
+    background-color: #fff;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+}
+.animal button:hover a {
+    color: #9fec63;
+}
+.animal a {
+    color: white;
+    text-decoration: none;
+    /* Remove o sublinhado padrão dos links */
+    font-size: 16px;
+    /* Define o tamanho da fonte */
+    font-weight: bold;
+    /* Deixa o texto em negrito */
+    padding: 8px 12px;
+    /* Espaçamento interno do botão (vertical e horizontal) */
+    border-radius: 15px;
+    /* Arredonda os cantos dos botões */
+    transition: all 0.3s ease;
+    /* Suaviza a transição de cor/efeitos ao passar o mouse */
+}
+/* LOGO COM FUNDO BRANCO */
+.logo img {
+    background-color: white;
+    border-radius: 50%;
+    height: 60px;
+    width: 60px;
+    padding: 5px;
+}
+body {
+    background-color: #e2f7d7;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+
+}
+.pesquisadog { 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* border: black solid; */
+    padding: 35px;
+    margin-bottom: 5px;
+}
+
+#pesquisadog { 
+    margin-right: 10px;
+    padding: 15px 12px;
+    border-radius: 25px;
+    border: 2px solid #a4d96c;
+    outline: none;
+    transition: 0.3s;
+    text-align: center;
+}
+
+#pesquisadog:focus {
+    border-color: rgb(185, 6, 185);
+}
+
+.pesquisadog button { 
+    padding: 13px;
+    border: none;
+    border-radius: 50%;
+    background-color: #68b528;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+
+.pesquisadog button:hover {
+    background-color: #4f8e1f;
+}
+
+.pesquisadog ::placeholder {
+    color: #000;
+    text-size-adjust: 200px;
+    display: none;
+}
+
+
+.botao-deletar-animal {
+    background-color: #dc3545; /* Vermelho */
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    flex: 1;
+    text-align: center;
+}
+.botao-deletar-animal a {
+    color: white;
+    text-decoration: none;
+    display: block;
+}

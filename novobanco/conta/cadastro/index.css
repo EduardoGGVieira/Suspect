@@ -1,0 +1,82 @@
+
+.corpo {
+    width: auto;
+    height: 100%;
+    display: flex;
+    justify-content: top;
+    align-items: center;
+    flex-direction: column;
+}
+
+.corpo form {
+    border: #d6ffd18a solid 5px;
+    border-radius: 12px;
+    background-color: #efffed9c;
+    width: 400px;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: left;
+    padding: 50px;
+}
+
+.corpo label {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+}
+
+.corpo input {
+    height: 30px;
+    border-radius: 25px;
+    border: 2px solid #a4d96c;
+    margin-bottom: 5px;
+    margin-top:5px;
+    padding-left: 5px;
+}
+
+.botoes button {
+    background-color: #447220;
+    color: rgb(255, 255, 255);
+    border-radius: 10px;
+    height: 30px;
+    width: 120px;
+    justify-content: center;
+    border: none;
+    border-radius: 10px;
+    background-color: #68b528;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: inset -2px -4px 0px 0px rgba(0, 0, 0, 0.15);
+}
+
+.botoes {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.botoes button:hover {
+   background-color: #4f8e1f;
+}
+
+.link {
+   padding:10px;
+   text-align: center;
+}
+
+.link a {
+   text-decoration:none;
+   font-size:14px;
+}
+
+.multiopo {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+}
+
+.multiopv {
+    display: flex;
+}

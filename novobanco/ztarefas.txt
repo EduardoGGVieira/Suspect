@@ -1,0 +1,12 @@
+fazer com que as tabelas ong/vol/adm e usuarios sejam adicionadas ao mesmo tempo com o bagulho de commit.
+
+ajustar para que fique responsivo o botão de login quando estamos logados
+
+quando logado como voluntario
+-aparecer botão postar animal
+
+quando logado como ong
+-aparecer botão campanha
+
+quando logado como adm
+-aparecer botão usuarios

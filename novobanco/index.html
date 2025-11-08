@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Responsividade -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Suspe(c)t</title>
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+
+    <!-- Adicione seu css aqui <link rel="stylesheet" href=".css" /> -->
+    <link rel="stylesheet" href="Home.css" />
+    <link rel="stylesheet" href="index.css" />
+    <!-- Icones -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+  </head>
+
+  <body class="tudissimo">
+    <!-- Navbar -->
+    <nav class="barranav">
+      <div class="logo">
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/616/616408.png"
+          alt="Logo Pet"
+        />
+        <h1><a href="."> Suspe(c)t</a></h1>
+      </div>
+
+      <ul class="barranavlinks">
+        <li>
+          <a id="funcaousuario" href="postar/Deslogado/"> 🐕 Postar animal</a>
+        </li>
+        <li><a href="ong">🏠 ONGs</a></li>
+        <li><a href="adotar">🐶 Adotar</a></li>
+        <li><a href="suporte">📞 Suporte</a></li>
+        <li><a href="sobre">💖 Sobre Nós</a></li>
+
+        <!-- BOTÃO DO GAB, ADICIONAR ESTA PARTE -->
+        <li class="menulogin">
+          <a class="botaologin">🐾 Login</a>
+          <ul class="tiposlogin">
+            <li><a id="tiposlogin1" href="conta/cadastro">Cadastro</a></li>
+            <li><a id="tiposlogin2" href="conta/login">Login</a></li>
+          </ul>
+        </li>
+      </ul>
+
+      <!-- Botão Hamburguer (mobile) -->
+      <div class="barranavmobile">
+        <i class="fa-solid fa-bars"> </i>
+      </div>
+    </nav>
+
+    <!-- Corpo -->
+    <div>
+      <div class="titulo">
+        <h1>Encontre seu novo melhor amigo</h1>
+
+        <p>
+          No Suspe(c)t, conectamos você com ONGs de todo o Brasil para facilitar
+          a adoção e a doação de cães. Nosso objetivo é dar a cada animal uma
+          chance de encontrar um lar amoroso.
+        </p>
+      </div>
+
+      <div class="anuncio">
+        <h1>Seja nosso patrocinador!</h1>
+
+        <div class="anuimg">
+          <img
+            src="https://cdn.gazetasp.com.br/img/pc/920/610/dn_arquivo/2024/06/jogo-tigrinho-reproducao.jpg"
+            alt=""
+          />
+
+          <img
+            src="https://www.gamerpoint.com.br/wp-content/uploads/2023/11/A-B1.Bet-e-a-melhor-casa-de-apostas-brasileira-1068x601.webp"
+            alt=""
+          />
+
+          <img
+            src="https://www.esports.net/br/wp-content/uploads/sites/3/2023/12/login-betson-2024-bonus.webp"
+            alt=""
+          />
+        </div>
+
+        <h4>
+          Todo o dinheiro será doado para as instituições afim de ajudar os
+          animais. rs
+        </h4>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      2025 Suspe(c)t. Todos os direitos reservados ao grupo: Artur Conrratt,
+      Eduardo Guilherme, Gabriel Moreno, Marcelo Abreu e Rubens Bavaroski.
+    </footer>
+
+    <footer class="footermobile">2025 Suspe(c)t.</footer>
+  </body>
+
+  <script src="index.js"></script>
+
+  <script>
+    fetch("conta/verificarlogin.php")
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.tipo) {
+          botaologin.textContent = `Olá, ${data.nome}`;
+          tiposlogin1.textContent = "Perfil";
+          tiposlogin1.href = "conta/perfil";
+          tiposlogin2.textContent = "Sair";
+          tiposlogin2.href = "conta/logout.php";
+          if (data.tipo === "vol") {
+            // Construa o botão na barra de navegação
+            funcaousuario.href = "postar";
+          } else if (data.tipo === "ong") {
+            funcaousuario.textContent = "📢 Postar Campanha";
+
+            funcaousuario.href = "ong/campanha";
+          } else if (data.tipo === "adm") {
+
+
+            // TROCAR AQUI PARA LEVAR PARA ADM
+            funcaousuario.textContent = "👤 Usuários";
+            funcaousuario.href = "administrador";
+           
+          }
+        }
+      });
+  </script>
+</html>

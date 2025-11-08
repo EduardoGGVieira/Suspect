@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Editar Perfil | Suspe(c)t</title>
+
+    <link rel="stylesheet" href="../../../home.css" />
+    <link rel="stylesheet" href="../../../index.css" />
+    <link rel="stylesheet" href="../../cadastro/index.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+  </head>
+
+  <body class="tudissimo">
+    <nav class="barranav">
+      <div class="logo">
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/616/616408.png"
+          alt="Logo Pet"
+        />
+        <h1><a href="../../../index.html"> Suspe(c)t</a></h1>
+      </div>
+
+      <ul class="barranavlinks">
+        <li>
+          <a id="funcaousuario" href="../../postar/Deslogado/">
+            🐕 Postar animal</a
+          >
+        </li>
+        <li><a href="../../ong/">🏠 ONGs</a></li>
+        <li><a href="../../adotar">🐶 Adotar</a></li>
+        <li><a href="../../suporte">📞 Suporte</a></li>
+        <li><a href="../../sobre">💖 Sobre Nós</a></li>
+
+        <!-- BOTÃO DO GAB, ADICIONAR ESTA PARTE -->
+        <li class="menulogin">
+          <a class="botaologin">🐾 Login</a>
+          <ul class="tiposlogin">
+            <li>
+              <a id="tiposlogin1" href="../../conta/cadastro">Cadastro</a>
+            </li>
+            <li><a id="tiposlogin2" href="../../conta/login">Login</a></li>
+          </ul>
+        </li>
+      </ul>
+
+      <div class="barranavmobile">
+        <i class="fa-solid fa-bars"> </i>
+      </div>
+    </nav>
+
+    <div class="corpo">
+      <h1 id="titulotipousu">Editar Informações do Usuári</h1>
+      <form
+        action="../salvarperfil.php"
+        method="post"
+        class="formulario perfil-form"
+      >
+        <input type="hidden" id="id_usuario" name="id" value="" />
+
+        <h2>Dados Pessoais</h2>
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" /><br />
+
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" name="email" /><br />
+
+        <label for="senha">Senha:</label>
+        <input type="password" id="senha" name="senha" /><br />
+
+        <label for="telefone">Telefone:</label>
+        <input type="text" id="telefone" name="telefone" /><br />
+
+        <label for="endereco">Endereço Completo:</label>
+        <input type="text" id="endereco" name="endereco" /><br />
+
+        <h2>Informações específicas</h2>
+    
+
+        <div id="editespecificas"></div>
+
+        <div class="botoes">
+          <button type="submit" class="btn-editar">Salvar Alterações</button>
+
+         <button type="button" class="btn-voltar" onclick="window.location.href='../index.html'">Voltar</button>
+          
+        </div>
+      </form>
+    </div>
+
+    <footer class="footer">
+      2025 Suspe(c)t. Todos os direitos reservados ao grupo: Artur Conrratt,
+      Eduardo Guilherme, Gabriel Moreno, Marcelo Abreu e Rubens Bavaroski.
+    </footer>
+
+    <footer class="footermobile">2025 Suspe(c)t.</footer>
+  </body>
+
+  <script src="../../../index.js"></script>
+
+  <script>
+    fetch("../../verificarlogin.php")
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.tipo) {
+          botaologin.textContent = `Olá, ${data.nome}`;
+          tiposlogin1.textContent = "Perfil";
+          tiposlogin1.href = "../../perfil";
+          tiposlogin2.textContent = "Sair";
+          tiposlogin2.href = "../../logout.php";
+          document.getElementById("id_usuario").value = data.id
+          //
+          const tituloDinamico = document.getElementById("titulotipousu");
+          tituloDinamico.textContent = `Gerencie seu perfil aqui, ${data.nome}.`;
+          fetch("../perfil.php")
+            .then((r) => r.json())
+            .then((perfilData) => {
+              if (perfilData.erro) {
+                dadosPerfilDiv.innerHTML = `<p style="color: red;">Erro ao carregar dados: ${perfilData.erro}</p>`;
+                return;
+              }
+
+              const editnome = document.getElementById("nome");
+              const editemail = document.getElementById("email");
+              const edittelefone = document.getElementById("telefone");
+              const editendereco = document.getElementById("endereco");
+
+              editnome.value = perfilData.nome || "";
+              editemail.value = perfilData.email || "";
+              edittelefone.value = perfilData.telefone || "";
+              editendereco.value = perfilData.endereco || "";
+
+              const editespecificas =
+              document.getElementById("editespecificas");
+              const br = document.createElement("br");
+
+              if (data.tipo === "vol") {
+                
+                const editcpflabel = document.createElement("label");
+                editcpflabel.textContent = "CPF:";
+                const editcpfinput = document.createElement("input");
+                editcpfinput.type = "text";
+                editcpfinput.id = "cpf";
+                editcpfinput.name = "cpf";
+                editcpfinput.readOnly = true;
+                editcpfinput.value = perfilData.cpf || "";
+                editespecificas.appendChild(editcpflabel);
+                editespecificas.appendChild(editcpfinput);
+                editespecificas.appendChild(br);
+
+                const editdatanaslabel = document.createElement("label");
+                editdatanaslabel.textContent = "Data de Nascimento:";
+                const editdatanasinput = document.createElement("input");
+                editdatanasinput.type = "date";
+                editdatanasinput.id = "data_nascimento";
+                editdatanasinput.name = "data_nascimento";
+                editdatanasinput.value = perfilData.data_nascimento || "";
+                editespecificas.appendChild(editdatanaslabel);
+                editespecificas.appendChild(editdatanasinput);
+                editespecificas.appendChild(br);
+              } 
+
+
+            });
+
+          //
+          if (data.tipo === "vol") {
+            funcaousuario.href = "../../postar";
+          } else if (data.tipo === "ong") {
+            funcaousuario.textContent = "📢 Postar Campanha";
+            funcaousuario.href = "../../ong/campanha";
+          } else if (data.tipo === "adm") {
+            funcaousuario.textContent = "🔑 Administrador";
+            funcaousuario.href = "../../adm";
+          }
+        } else {
+          window.location.replace("../../conta/login");
+        }
+      });
+  </script>
+
+  <!-- <script>
+    // Script da Navbar Hamburger (Mobile)
+    const hamburguer = document.querySelector(".barranavmobile");
+    const navLinks = document.querySelector(".barranavlinks");
+    hamburguer.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+    });;
+
+    const botaologin = document.querySelector(".botaologin");
+    const tiposlogado = document.querySelector(".tiposlogado");
+    const tiposlogin = document.querySelector(".tiposlogin");
+    const postar_animal = document.getElementById("postar_animal");
+
+    // Script de Login/Logout na Navbar
+    fetch('/Suspect/Cadastro/verificarlogado.php')
+        .then(response => response.json())
+        .then(data => {
+
+            if (data.logado) {
+
+                botaologin.innerHTML = `Olá, ${data.usuario.nome}`;
+                postar_animal.href = "../PostarAnimal/postar.html";
+                botaologin.addEventListener("click", () => {
+                    tiposlogado.classList.toggle("active");
+                    botaologin.classList.toggle("active");
+                    tiposlogin.classList.remove("active");
+                })
+
+                
+                preencherFormulario(data.usuario.id);
+
+            } else {
+                // Redireciona se não estiver logado
+                // window.location.href = "/suspect/cadastro/login.html";
+            }
+        });
+
+    // ARRUMAR ESTE DIRETÓRIO PARA PUXAR O FORMUÁRIO COM OS DADOS PREENCHIDOS!
+
+
+    function preencherFormulario(userId) {
+        // Busca os dados completos do perfil 
+        fetch('../perfil.php')
+            .then(response => response.json())
+            .then(perfilData => {
+                // Assume que perfil.php retorna o objeto do usuário diretamente
+                if (perfilData && !perfilData.erro) {
+
+                    document.getElementById('id_usuario').value = perfilData.id || '';
+                    document.getElementById('nome').value = perfilData.nome || '';
+                    document.getElementById('email').value = perfilData.email || '';
+                    document.getElementById('cpf').value = perfilData.cpf || '';
+                    document.getElementById('telefone').value = perfilData.telefone || '';
+                    document.getElementById('endereco').value = perfilData.endereco || '';
+                    // O campo date precisa do formato YYYY-MM-DD
+                    document.getElementById('data_nascimento').value = perfilData.data_nascimento || '';
+                } else {
+                    console.error('Erro ao carregar dados do perfil para edição:', perfilData.erro || 'Dados vazios');
+                }
+            })
+            .catch(error => {
+                console.error('Falha na comunicação com o servidor para carregar dados:', error);
+            });
+    }
+</script> -->
+</html>

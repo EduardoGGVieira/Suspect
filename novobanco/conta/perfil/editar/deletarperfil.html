@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Confirmar Exclusão | Suspe(c)t</title>
+
+  <link rel="stylesheet" href="../../../index.css" />
+  <link rel="stylesheet" href="deletar.css" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+</head>
+
+<body class="tudissimo">
+
+  <div class="corpo">
+    <div class="perfil_usuario">
+      <h1>
+        ⚠️ CONFIRMAR EXCLUSÃO DE PERFIL ⚠️
+      </h1>
+
+      <p>
+        Ao confirmar, todos os seus dados e histórico de voluntário serão
+        **permanentemente removidos** do Suspe(c)t.
+      </p>
+
+      <p class="aviso-confirmacao">
+        Tem certeza que deseja continuar? Esta ação não pode ser desfeita.
+      </p>
+
+      <form action="deletarperfil.php" method="post" id="form-delecao">
+
+        <input type="hidden" id="id_usuario_delecao" name="id" value="" />
+
+        <div class="acoes-perfil">
+
+          <button type="submit" class="btn-deletar">
+            SIM, DELETAR MINHA CONTA
+          </button>
+
+          <button type="button" class="btn-editar" onclick="window.location.href='../index.html'">
+            CANCELAR E VOLTAR
+          </button>
+
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <footer class="footermobile">2025 Suspe(c)t.</footer>
+  ...
+  <footer class="footermobile">2025 Suspe(c)t.</footer>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    fetch("../../verificarlogin.php")
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.tipo) {
+           document.getElementById("id_usuario_delecao").value = data.id;}})
+      });
+</script>
+
+</body>
+
+</html>

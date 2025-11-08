@@ -1,0 +1,88 @@
+.cabecalho {
+  /* border: black solid; */
+  margin-block: 5px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cabecalho img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin: 5px;
+  padding: 0px;
+  border: 3px solid #a4d96c;
+}
+
+.cabecalho h1 {
+  font-size: 50px;
+  color: #497e1d;
+  -webkit-text-stroke: 2px #ffffff;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  margin: 0px;
+  text-align: center;
+}
+
+.descricao {
+  /* border: black solid; */
+  margin-block: 5px;
+  padding-block: 5px;
+  padding-inline: 30px;
+  text-align: center;
+}
+
+.descricao p {
+  margin: 0;
+  font-size: 18px;
+  color: #555;
+  text-align: center;
+}
+
+.informacoes {
+  /* border: black solid; */
+  margin-block: 5px;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.caixadeinformacoes {
+  /* border: red solid; */
+  display: flex;
+  flex-direction: column;
+  /* background-color: #c1ffc1; */
+  background: radial-gradient(#ddffc1, #c4ff95);
+  box-shadow: 9px 12px 10px 0px rgba(0, 0, 0, 0.15);
+  border: white solid;
+  border-radius: 25px;
+  padding: 20px;
+  width: 700px;
+}
+
+.caixadeinformacoes p {
+  margin: 5px;
+  color: white;
+  font-weight: bold;
+  background-color: #53be006e;
+  padding: 5px;
+  border-radius: 10px;
+  border: #8080805e solid;
+}
+
+.caixadeinformacoes p a {
+  color: white; /* Cor branca para o texto dos links */
+  text-decoration: none; /* Remove o sublinhado padrão dos links */
+  font-size: 16px; /* Define o tamanho da fonte */
+  font-weight: bold; /* Deixa o texto em negrito */
+  padding: 2px; /* Espaçamento interno do botão (vertical e horizontal) */
+  border-radius: 10px; /* Arredonda os cantos dos botões */
+  transition: all 0.3s ease; /* Suaviza a transição de cor/efeitos ao passar o mouse */
+}
+
+.caixadeinformacoes p a:hover {
+  background-color: #fff; /* Muda o fundo para branco */
+  color: #68b528; /* Muda o texto para verde */
+}

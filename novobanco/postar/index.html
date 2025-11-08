@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Responsividade -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Suspe(c)t</title>
+
+    <link rel="stylesheet" href="../index.css" />
+    <link rel="stylesheet" href="postar.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <nav class="barranav">
+      <div class="logo">
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/616/616408.png"
+          alt="Logo Pet"
+        />
+        <h1><a href="../"> Suspe(c)t</a></h1>
+      </div>
+
+      <ul class="barranavlinks">
+        <li>
+          <a id="funcaousuario" href="../postar/Deslogado/">
+            🐕 Postar animal</a
+          >
+        </li>
+        <li><a href="../ong">🏠 ONGs</a></li>
+        <li><a href="../adotar">🐶 Adotar</a></li>
+        <li><a href="../suporte">📞 Suporte</a></li>
+        <li><a href="../sobre">💖 Sobre Nós</a></li>
+
+        <!-- BOTÃO DO GAB, ADICIONAR ESTA PARTE -->
+        <li class="menulogin">
+          <a class="botaologin">🐾 Login</a>
+          <ul class="tiposlogin">
+            <li><a id="tiposlogin1" href="../conta/cadastro">Cadastro</a></li>
+            <li><a id="tiposlogin2" href="../conta/login">Login</a></li>
+          </ul>
+        </li>
+      </ul>
+
+      <!-- Botão Hamburguer (mobile) -->
+      <div class="barranavmobile">
+        <i class="fa-solid fa-bars"> </i>
+      </div>
+    </nav>
+
+    <!-- Corpo -->
+    <div class="titulo">
+      <h1>Precisa de um lugar que cuide do seu amigo?</h1>
+
+      <p>
+        Aqui você pode postar informações sobre um animal perdido para ajuda-lo
+        a encontrar um lar. Preencha o formulário abaixo com os detalhes do
+        animal.
+      </p>
+    </div>
+
+    <div class="formulario">
+      <h1>Formuário para cadastro do animal</h1>
+      <h4>
+        Com estes dados podemos econtrar um lugar adequado para seu amigo!
+        responda da melhor maneira possível.
+      </h4>
+
+      <!-- Teste de add uma imagem (enctype) -->
+      <form
+        action="save_animal.php"
+        method="post"
+        id="formularioAnimal"
+        enctype="multipart/form-data"
+      >
+        <label for="nome">Nome do Animal</label>
+        <input type="text" placeholder="Nome Temporário" name="nome" />
+
+        <label for="raca">Raça</label>
+        <input type="text" placeholder="Caso saiba." name="raca" />
+
+        <label for="idade">Idade</label>
+        <input type="text" placeholder="Caso saiba." name="idade" />
+
+        <label for="peso">Peso</label>
+        <input type="text" placeholder="Caso saiba.(KG)" name="peso" />
+
+        <label for="sexo">Sexo</label>
+        <select id="sexo" name="sexo">
+          <option value="sexo_animal">Qual o Sexo do animal?</option>
+          <option value="M">Macho</option>
+          <option value="F">Femêa</option>
+        </select>
+
+        <label for="localizacao">localização</label>
+        <input type="text" placeholder="Digite aqui." name="localizacao" />
+
+        <label for="altura">Altura</label>
+        <input type="text" placeholder="Caso saiba.(cm)" name="altura" />
+
+        <label for="estado_saude">Estado de Saúde</label>
+        <input type="text" placeholder="Digite aqui." name="estado_saude" />
+
+        <label for="vacinas">Vacinas</label>
+        <input type="text" placeholder="Caso saiba." name="vacinas" />
+
+
+        <label for="id_ong">ONG Responsável</label>
+        <select id="id_ong" name="id_ong" required>
+          <option value="">Selecione a ONG</option>
+          <option value="3">4Patas</option>
+          <option value="4">Outra ong</option>
+          <option value="">Não tem ong</option>
+        </select>
+
+        <label for="observacoes">Observações</label>
+        <textarea
+          id="observacoes"
+          placeholder="Informações adicionais sobre o animal."
+          name="observacoes"
+        ></textarea>
+
+        <!-- Teste de add uma imagem (enctype) -->
+        <label for="foto">Foto do Animal</label
+        ><input type="file" name="foto" id="foto" accept="image/*" />
+
+        <button type="submit">Postar Animal</button>
+      </form>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      2025 Suspe(c)t. Todos os direitos reservados ao grupo: Artur Conrratt,
+      Eduardo Guilherme, Gabriel Moreno, Marcelo Abreu e Rubens Bavaroski.
+    </footer>
+    <footer class="footermobile">2025 Suspe(c)t.</footer>
+  </body>
+
+  <script src="../index.js"></script>
+
+  <script>
+    fetch("../conta/verificarlogin.php")
+      .then((response) => response.json())
+      .then((data) => {
+        // console.log(data.tipo);
+        if (data.tipo) {
+          botaologin.textContent = `Olá, ${data.nome}`;
+          tiposlogin1.textContent = "Perfil";
+          tiposlogin1.href = "../conta/perfil";
+          tiposlogin2.textContent = "Sair";
+          tiposlogin2.href = "../conta/logout.php";
+          if (data.tipo === "vol") {
+            // Construa o botão na barra de navegação
+            funcaousuario.href = "../postar";
+          } else if (data.tipo === "ong") {
+            window.location.replace("../postar/deslogado/index.html");
+            funcaousuario.textContent = "📢 Postar Campanha";
+            funcaousuario.href = "../ong/campanha";
+          } else if (data.tipo === "adm") {
+            window.location.replace("../postar/deslogado/index.html");
+            funcaousuario.textContent = "🔑 Administrador";
+            funcaousuario.href = "../adm";
+          }
+        } else {
+          window.location.replace("../postar/deslogado/index.html");
+        }
+      });
+  </script>
+</html>

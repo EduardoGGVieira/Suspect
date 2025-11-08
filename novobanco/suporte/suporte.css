@@ -1,0 +1,163 @@
+/* =======================
+   Área de "Precisa de Suporte?" e Formulário
+   ======================= */
+.area_formulario {
+  max-width: 700px;
+  margin: 0 auto 50px auto;
+  padding: 0 20px;
+}
+
+.area_formulario .titulo {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.area_formulario .titulo h1 {
+  font-size: 32px;
+  color: #2c6f4a; /* verde harmonioso */
+  margin-bottom: 10px;
+}
+
+.area_formulario .titulo p {
+  font-size: 16px;
+  color: #444;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+
+.formulario_de_contato {
+  background-color: #f5f5f5;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.formulario_de_contato h2 {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #2c6f4a;
+}
+
+.formulario_de_contato label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.formulario_de_contato input,
+.formulario_de_contato textarea {
+  width: 100%;
+  padding: 10px 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: inherit;
+  resize: vertical;
+}
+
+.formulario_de_contato button {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.formulario_de_contato button:hover {
+  background-color: #43a047;
+}
+
+/* =======================
+   Área de Central de Suporte + Caixinhas (telefone/email)
+   ======================= */
+.fundoverde {
+  background-color: #e6f4ea;
+  padding: 40px 20px;
+  border-radius: 15px;
+  margin-top: 30px;
+  text-align: center;
+}
+
+.fundoverde h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+  color: #2c6f4a;
+}
+
+.fundoverde p {
+  font-size: 16px;
+  color: #444;
+  margin-bottom: 30px;
+}
+
+/* Caixinhas de contato */
+.contato-boxes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.contato-box {
+  flex: 1 1 220px;
+  max-width: 300px;
+  background: linear-gradient(135deg, #4caf50, #81c784);
+  color: #fff;
+  border-radius: 15px;
+  padding: 25px 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+}
+
+.contato-box:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
+}
+
+.contato-box i {
+  font-size: 36px;
+  margin-bottom: 15px;
+  animation: bounce-suporte 2s infinite;
+}
+
+.contato-box h3 {
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+
+.contato-box p {
+  font-size: 16px;
+}
+
+/* Animação bounce para ícones */
+@keyframes bounce-suporte {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-8px);
+  }
+  60% {
+    transform: translateY(-4px);
+  }
+}
+
+/* Responsividade para caixinhas */
+@media (max-width: 600px) {
+  .contato-boxes {
+    flex-direction: column;
+    align-items: center;
+  }
+}

@@ -1,0 +1,112 @@
+/* --- Estilização da Página de Confirmação de Deleção (deletar.css) --- */
+
+/* 1. Container Principal e Títulos */
+
+.corpo {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Alinha no topo da tela */
+    min-height: 80vh; /* Garante que o corpo ocupe a maior parte da tela */
+    padding: 40px 20px;
+    background-color: #f4f4f4; /* Fundo suave */
+}
+
+.perfil_usuario {
+    width: 100%;
+    max-width: 1000px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    text-align: center;
+    border-top: 5px solid #dc3545; /* Borda vermelha de alerta */
+}
+
+/* Título de Confirmação (Olá Administrador) */
+.perfil_usuario h1 {
+    font-size: 1.8em;
+    color: #333;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #eee;
+}
+
+/* 2. Mensagens de Alerta e Confirmação */
+
+/* Mensagem de confirmação que será atualizada pelo JS (destaque) */
+.perfil_usuario p.aviso-confirmacao {
+    font-size: 20px;
+    color: #dc3545; /* Vermelho forte para indicar perigo */
+    font-weight: bold;
+    margin: 25px 0;
+    padding: 15px;
+    background-color: #fcebeb; /* Fundo levemente avermelhado */
+    border: 1px solid #f5c6cb;
+    border-radius: 5px;
+}
+
+/* Para destacar o nome do usuário dentro da mensagem de confirmação */
+.perfil_usuario p.aviso-confirmacao strong {
+    color: #333; /* Mantém o nome do usuário com boa leitura */
+    font-size: 1.1em;
+}
+
+/* Mensagem genérica (que será escondida pelo JS) */
+.perfil_usuario p:not(.aviso-confirmacao) {
+    color: #6c757d;
+    font-size: 25px;
+    margin-bottom: 15px;
+}
+
+/* 3. Botões de Ação */
+
+.acoes-perfil {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+    justify-content: center;
+}
+
+.acoes-perfil button {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.1s;
+    font-size: 1em;
+    flex: 1; /* Faz com que ambos os botões tenham largura igual */
+    max-width: 250px;
+}
+
+/* Botão SIM, DELETAR CONTA (Perigo) */
+.btn-deletar {
+    background-color: #dc3545; /* Vermelho */
+    color: white;
+}
+
+.btn-deletar:hover {
+    background-color: #c82333;
+    transform: translateY(-2px);
+}
+
+/* Botão CANCELAR E VOLTAR (Cor Secundária ou Neutra) */
+.btn-editar {
+    background-color: #6c757d; /* Cinza Neutro */
+    color: white;
+}
+
+.btn-editar:hover {
+    background-color: #5a6268;
+    transform: translateY(-2px);
+}
+
+/* Responsividade Básica */
+@media (max-width: 650px) {
+    .acoes-perfil {
+        flex-direction: column;
+    }
+    .acoes-perfil button {
+        max-width: none;
+    }
+}

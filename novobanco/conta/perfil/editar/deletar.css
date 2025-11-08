@@ -1,0 +1,71 @@
+/* --- Estilos Específicos para a Página de Confirmação de Exclusão (deletarperfil.html) --- */
+
+/* Reutiliza o estilo principal da caixa de perfil para o container de alerta */
+.perfil_usuario {
+    /* O estilo completo está no perfil.css, aqui garantimos apenas ajustes de padding */
+    padding: 40px; 
+    text-align: center; /* Centraliza o conteúdo dentro da caixa */
+    margin: 60px auto; /* Mais margem para destacar na tela */
+}
+
+/* Título de Alerta */
+.perfil_usuario h1 {
+    color: #dc3545 !important; /* Vermelho forte para indicar PERIGO (Override de outros estilos) */
+    font-size: 2em;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #f8d7da; /* Linha sutil de separação */
+    padding-bottom: 10px;
+}
+
+/* Mensagem de Aviso */
+.perfil_usuario p {
+    font-size: 1.1em;
+    color: #333;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+/* Mensagem de Confirmação Final (em negrito) */
+.perfil_usuario p:last-of-type {
+    font-weight: bold;
+    color: #721c24; /* Cor escura de aviso */
+    margin-bottom: 40px;
+}
+
+/* --- Container e Estilização dos Botões de Ação --- */
+
+/* Reutiliza a classe acoes-perfil para organizar os botões */
+.acoes-perfil {
+    display: flex;
+    justify-content: center;
+    gap: 25px; /* Aumenta um pouco a distância entre os botões */
+    margin-top: 30px;
+    padding-top: 0; /* Remove padding-top se o estilo original tiver */
+    border-top: none; /* Remove a linha de separação, pois a caixa já é o foco */
+}
+
+/* O Botão de Deleção (Vermelho - Prioridade) */
+.btn-deletar {
+    /* Estilo definido no perfil.css: background-color: #dc3545; */
+    flex-grow: 1;
+    max-width: 250px;
+}
+
+/* O Botão de Cancelar/Voltar (Verde - Secundário) */
+.btn-editar {
+    /* Estilo definido no perfil.css: background-color: #447220; */
+    flex-grow: 1;
+    max-width: 250px;
+}
+
+/* Responsividade: Botões empilhados em telas pequenas */
+@media (max-width: 768px) {
+    .acoes-perfil {
+        flex-direction: column; 
+        gap: 15px;
+    }
+    .acoes-perfil button {
+        width: 100%;
+        max-width: none;
+    }
+}

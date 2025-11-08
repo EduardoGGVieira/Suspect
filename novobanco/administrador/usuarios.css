@@ -1,0 +1,118 @@
+/* --- Estilização da Página de Usuários (usuarios.html) --- */
+
+/* Contêiner principal (O FEED) */
+.dadosusuario {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    max-width: 1300px;
+    margin: 20px auto;
+}
+
+/* 1. O Card do Usuário (Classe .usuario-card) */
+.usuario-card {
+    width: 300px; 
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden; 
+    margin-bottom: 20px;
+    text-align: center; 
+    transition: transform 0.2s, box-shadow 0.2s;
+    border-top: 5px solid #ccc;
+    /* Garante que o conteúdo estique o card para o layout flex */
+    display: flex;
+    flex-direction: column; 
+    justify-content: space-between;
+}
+
+.usuario-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* --- SEPARAÇÃO POR TIPO (Cores mantidas) --- */
+
+.usuario-card.tipo-ong { border-top-color: #00bcd4; }
+.usuario-card.tipo-vol { border-top-color: #4caf50; }
+.usuario-card.tipo-adm { border-top-color: #f44336; }
+
+/* ------------------------------------------- */
+
+/* 2. Estilo para a Imagem de Placeholder */
+.usuario-card img[alt^="Ícone de"] { 
+    width: 100px; 
+    height: 100px; 
+    border-radius: 50%; 
+
+    /* Garante que a imagem cabe no círculo sem cortar */
+    object-fit: contain; 
+    margin: 15px auto 10px auto; 
+    border: 3px solid #ddd;
+}
+
+/* 3. A Descrição do Usuário */
+.usuario-descricao {
+    padding: 10px 15px;
+    text-align: left;
+    flex-grow: 1; 
+    border-top: 1px solid #eee; 
+}
+
+.usuario-descricao p {
+    margin: 5px 0;
+    color: #333;
+}
+
+.usuario-descricao p strong {
+    color: #007bff; 
+    font-weight: bold;
+}
+
+
+/* --- NOVO: Estilização da Div de Ações e dos Botões --- */
+
+.usuario-acoes {
+    display: flex;
+    width: 100%;
+    /* Garante que os botões fiquem colados na base */
+    margin-top: auto; 
+}
+
+/* Estilo geral para todos os botões na seção de ações */
+.usuario-acoes button {
+    flex: 1; /* Faz com que cada botão ocupe metade da largura */
+    border: none;
+    padding: 10px 0;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border-radius: 0;
+}
+
+.usuario-acoes button a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    display: block;
+    width: 100%;
+}
+
+/* Estilo específico para o botão EDITAR (Cor Primária) */
+.usuario-acoes .botao-editar {
+    background-color: #007bff; /* Azul primário */
+}
+
+.usuario-acoes .botao-editar:hover {
+    background-color: #0056b3;
+}
+
+/* Estilo específico para o botão DELETAR (Cor de Perigo) */
+.usuario-acoes .botao-deletar {
+    background-color: #dc3545; /* Vermelho/Perigo */
+}
+
+.usuario-acoes .botao-deletar:hover {
+    background-color: #c82333;
+}

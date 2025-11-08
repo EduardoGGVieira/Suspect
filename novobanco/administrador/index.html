@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Responsividade -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Suspe(c)t</title>
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+
+   
+    <link rel="stylesheet" href="../index.css" />
+    <link rel="stylesheet" href="../adotar/adotar.css" />
+
+    <link rel="stylesheet" href="usuarios.css" />
+
+    <!-- Icones -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <nav class="barranav">
+      <div class="logo">
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/616/616408.png"
+          alt="Logo Pet"
+        />
+        <h1><a href="../"> Suspe(c)t</a></h1>
+      </div>
+
+      <ul class="barranavlinks">
+        <li>
+          <a id="funcaousuario" href="../postar/Deslogado/">
+            🐕 Postar animal</a
+          >
+        </li>
+        <li><a href="../ong">🏠 ONGs</a></li>
+        <li><a href="../adotar">🐶 Adotar</a></li>
+        <li><a href="../suporte">📞 Suporte</a></li>
+        <li><a href="../sobre">💖 Sobre Nós</a></li>
+
+        <!-- BOTÃO DO GAB, ADICIONAR ESTA PARTE -->
+        <li class="menulogin">
+          <a class="botaologin">🐾 Login</a>
+          <ul class="tiposlogin">
+            <li><a id="tiposlogin1" href="../conta/cadastro">Cadastro</a></li>
+            <li><a id="tiposlogin2" href="../conta/login">Login</a></li>
+          </ul>
+        </li>
+      </ul>
+
+      <!-- Botão Hamburguer (mobile) -->
+      <div class="barranavmobile">
+        <i class="fa-solid fa-bars"> </i>
+      </div>
+    </nav>
+
+    <!-- Corpo -->
+
+    <div class="titulo">
+        <h1>Todos os usuario cadastrados no sistema estão aqui.</h1>
+      
+
+    <div class="dadosusuario"></div>
+
+    <script src="index.js"></script>
+
+    
+    <script>
+  // Lógica do botão hamburguer 
+  const hamburguer = document.querySelector(".barranavmobile");
+  const navLinks = document.querySelector(".barranavlinks");
+  hamburguer.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+  });
+
+  // Elementos da navegação que precisam ser atualizados
+  const botaologin = document.querySelector(".botaologin");
+  const tiposlogado = document.querySelector(".tiposlogado"); // Menu 'Ver Perfil/Sair'
+  const tiposlogin = document.querySelector(".tiposlogin"); // Menu 'Voluntário/ONG'
+  const postar_animal = document.getElementById("postar_animal"); // Link dinâmico
+
+  // Função para lidar com o clique no Login/Usuário
+  botaologin.addEventListener("click", () => {
+    // Alterna a visibilidade do menu relevante
+    if (tiposlogado.classList.contains("active")) {
+      tiposlogado.classList.remove("active");
+    } else if (tiposlogin.classList.contains("active")) {
+      tiposlogin.classList.remove("active");
+    }
+
+    // Se a página for acessada por um ADM logado, o menu 'tiposlogado' deve ser mostrado
+    if (botaologin.textContent.startsWith("Olá,")) {
+      tiposlogado.classList.toggle("active");
+    } else {
+      tiposlogin.classList.toggle("active");
+    }
+    botaologin.classList.toggle("active");
+  });
+
+  // Script de verificação de login para atualização dos links
+  // O caminho é ajustado para o diretório correto (../../conta/verificarlogin.php)
+  fetch('../conta/verificarlogin.php')
+    .then(response => response.json())
+    .then(data => {
+
+      if (data.tipo) {
+        // Usuário está logado
+        botaologin.innerHTML = `Olá, ${data.nome}`;
+
+        // Lógica de redirecionamento para o link dinâmico
+        if (data.tipo === "vol") {
+          postar_animal.href = "../../postar"; // Redireciona para postar animal
+        } else if (data.tipo === "ong") {
+          postar_animal.textContent = "📢 Postar Campanha";
+          postar_animal.href = "../../ong/campanha"; // Redireciona para postar campanha
+        } else if (data.tipo === "adm") {
+          funcaousuario.textContent = "👤 Usuários";
+            funcaousuario.href = "index.html";
+        }
+
+        // Garante que o menu de login padrão não apareça para logados
+        tiposlogin.style.display = 'none';
+
+      } else {
+        // Usuário deslogado: garante que o menu logado não apareça
+        tiposlogado.style.display = 'none';
+      }
+    })
+    .catch(error => console.error('Erro ao verificar login:', error));
+</script>
+  </body>
+
+  <!-- Footer -->
+  <footer class="footer">
+    2025 Suspe(c)t. Todos os direitos reservados ao grupo: Artur Conrratt,
+    Eduardo Guilherme, Gabriel Moreno, Marcelo Abreu e Rubens Bavaroski.
+  </footer>
+
+  <footer class="footermobile">2025 Suspe(c)t.</footer>
+</html>

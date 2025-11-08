@@ -1,0 +1,81 @@
+
+body {
+    background-color: #e2f7d7;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.funcionamos {
+    display: flex;
+    background-color: #f7fff2;
+    margin: 60px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.porque {
+    display: flex;
+    background-color: #f7fff2;
+    margin: 60px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row-reverse;
+}
+
+.pix {
+    display: flex;
+    background-color: #f7fff2;
+    margin: 60px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.textonos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 20px;
+}
+
+.textonos h1 {
+  color: #68b528;
+  -webkit-text-stroke: 2px #5b9a28;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.textonos p {
+    font-size: large;
+    color: black; 
+    margin: 30px;
+}
+
+.fotonos img {
+    width: auto;
+    height: auto;
+    border-radius: 30%;
+}
+
+.fotonos {
+    display: flex;
+    margin: 20px;
+    width: 200px;
+    height: 200px;
+    
+}
+
+.qrcode img {
+    width: auto;
+    height: auto;
+}
+
+.qrcode {
+    display: flex;
+    margin: 20px;
+    width: 300px;
+    height: 300px;
+}
